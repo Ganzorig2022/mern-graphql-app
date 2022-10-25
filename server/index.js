@@ -1,6 +1,7 @@
 const express = require('express');
 // const bodyParser = require('body-parser');
 const colors = require('colors');
+const cors = require('cors');
 
 require('dotenv').config();
 const { graphqlHTTP } = require('express-graphql');
@@ -13,6 +14,8 @@ const app = express();
 
 // Connect to database
 connectDB();
+
+app.use(cors());
 
 // http://localhost:5000/graphql dr postman shig TOOL garch irne.
 app.use(

@@ -107,7 +107,7 @@ const mutation = new GraphQLObjectType({
     deleteClient: {
       type: ClientType,
       args: {
-        id: { type: GraphQLNonNull(GraphQLString) },
+        id: { type: GraphQLNonNull(GraphQLID) },
       },
       resolve(parent, args) {
         //delete client from mongodb
@@ -285,3 +285,53 @@ module.exports = new GraphQLSchema({
 //      status
 //    }
 // }
+
+//===============================================
+// # mutation {
+// #   addClient(name: "Test", email: "test@test.com", phone: "99022052" ) {
+// #     id
+// #     name
+// #     email
+// #     phone
+// #   }
+// # }
+
+// # mutation {
+// #   deleteClient(id:"6357d074907ce3877767cefc") {
+// #     name
+// #   }
+// # }
+
+// # {
+// #   clients {
+// #     name
+// #   }
+// # }
+
+// # mutation {
+// #   addProject(name: "Ganzo", description: "brand new body", status: new, clientId: "6357cd0a317d16924c3cb7cb"){
+// #     name
+// #     description
+// #     status
+// #   }
+// # }
+
+// # mutation {
+// #   updateProject(id: "6357d4a40704307b5cc11595", description: "newly updated project by Ganzo2", status: completed) {
+// #     name
+// #     status
+// #     description
+// #   }
+// # }
+// # {
+// #   projects {
+// #     name
+// #     id
+// #     status
+// #     description
+// #     client {
+// #       name
+// #       email
+// #     }
+// #   }
+// # }
